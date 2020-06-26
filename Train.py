@@ -58,7 +58,6 @@ class TrainSystem(TrainServer):
         elif self.UserSelection == 4:
             self.ProgramExit()
         else:
-            print("1부터4까지의 번호를 입력하세요")
             return self.Menu()
 
     def Compare(self):
@@ -120,9 +119,6 @@ class TrainSystem(TrainServer):
                 elif choice == 'n':
                     print("메뉴로 돌아갑니다.")
                     return self.Menu()
-                else:
-                    print("y/n 중 하나의 값을 입력하세요.")
-                    return self.Menu()
             else:
                 if i >= len(self.Traintype_list) - 1:
                     print("기차목록에 해당 노선이 없습니다.")
@@ -154,18 +150,6 @@ class TrainSystem(TrainServer):
                     print("예매가 취소되었습니다.")
                 else:
                     print("예약된 정보가 없습니다.")
-
-            for i in range(len(self.Traintype_list)):
-                if self.Traintype_list[i] == User_CInput:
-                    if self.TrainList[i][5] == '매진':
-                        ChangeNum = '1'
-                        self.TrainList[i].pop(5)
-                        self.TrainList[i].append(ChangeNum)
-                    else:
-                        ChangeNum = str(int(self.TrainList[i][5]) + 1)
-                        self.TrainList[i].pop(5)
-                        self.TrainList[i].append(ChangeNum)
-
             return self.User_Reservation()
         elif UserSelect == 3:
             return self.Menu()
